@@ -18,4 +18,27 @@ fun main() {
 
     println("Saldo cuenta1: ${cuenta1.consultarSaldo()}")
     println("Saldo cuenta2: ${cuenta2.consultarSaldo()}")
+
+    /* EJERCICIO 3 */
+
+    val conjunto = ConjuntoLibros()
+
+    val libro1 : Libro = Libro("Blancanieves","David Millán",234,6)
+    val libro2 : Libro = Libro("La Cenicienta","María Menta",136, 9)
+
+    conjunto.añadirLibro(libro1)
+    conjunto.añadirLibro(libro2)
+
+    conjunto.mostrarMayorCalificación()
+    conjunto.mostrarMenorCalificación()
+    conjunto.mostrarConjunto()
+
+    conjunto.eliminarLibroPorTitulo("La Cenicienta")
+
+    conjunto.eliminarLibroPorAutor("David Millán")
+
+    conjunto.mostrarConjunto()
+
+    conjunto.añadirLibro(Libro("Pinocho", "Mario Pérez", 315, 4))
+    conjunto.mostrarConjunto()
 }
