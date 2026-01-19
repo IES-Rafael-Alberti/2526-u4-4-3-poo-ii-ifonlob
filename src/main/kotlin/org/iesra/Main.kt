@@ -1,16 +1,21 @@
 package org.iesra
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 fun main() {
-    val name = "Kotlin"
-    //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-    // to see how IntelliJ IDEA suggests fixing it.
-    println("Hello, " + name + "!")
+    /* EJERCICIO 2 */
+    val persona1 = Persona("12345678P")
+    val cuenta1 = Cuenta(556456,0.0)
+    val cuenta2 = Cuenta(817003,700.0)
 
-    for (i in 1..5) {
-        //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-        // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-        println("i = $i")
-    }
+    persona1.añadirCuenta(cuenta1)
+    persona1.añadirCuenta(cuenta2)
+
+    cuenta1.recibirAbonos(1100.0)
+    cuenta2.realizarPago(750.0)
+    val esMorosa = Cuenta.esMorosa(persona1)
+    println(if (esMorosa) "Es morosa" else "No es morosa")
+
+    Cuenta.transferencia(persona1,persona1,0,1, 400.0)
+
+    println("Saldo cuenta1: ${cuenta1.consultarSaldo()}")
+    println("Saldo cuenta2: ${cuenta2.consultarSaldo()}")
 }
