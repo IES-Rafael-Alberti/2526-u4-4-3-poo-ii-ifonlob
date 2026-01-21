@@ -58,7 +58,7 @@ fun main() {
             1 -> {
                 println("Introduzca la descripción de la tarea a añadir:")
                 val descripcion : String = readln()
-                val id = Random.nextInt(1,9999)
+                val id = Random.nextInt(1,10000)
                 val tarea = Tarea(id, descripcion)
                 conjuntoDeTareas.añadirTarea((tarea))
                 println("Tarea con ID ${tarea.id} creada con éxito.")
@@ -99,7 +99,7 @@ fun main() {
                 if (conjuntoDeTareas.listaTareas.all { it.estado == EstadoTarea.REALIZADA } || conjuntoDeTareas.listaTareas.isEmpty()) {
                     println("No existen tareas pendientes.")
                 } else {
-                    conjuntoDeTareas.mostrarTodasLasTareas()
+                    conjuntoDeTareas.mostrarTareasPendientes()
                 }
             }
             6 -> {
