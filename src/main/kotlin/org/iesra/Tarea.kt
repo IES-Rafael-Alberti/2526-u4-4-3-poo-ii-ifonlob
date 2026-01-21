@@ -3,7 +3,7 @@ package org.iesra
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 
-class Tarea(val id : String ,val descripcion : String ) {
+class Tarea(val id : Int ,val descripcion : String ) {
     var fechaHoraRealizacion: LocalDateTime? = null
     var estado : EstadoTarea = EstadoTarea.PENDIENTE
         set(value) {
@@ -14,12 +14,12 @@ class Tarea(val id : String ,val descripcion : String ) {
         }
     override fun toString(): String {
         return if (estado == EstadoTarea.PENDIENTE) {
-            "Tarea $id: $descripcion [PENDIENTE]"
+            "Tarea pendiente por hacer con ID $id: $descripcion"
         }
         else {
             val formateadorFecha = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss")
             val fechaFormateada = fechaHoraRealizacion?.format(formateadorFecha) ?: "sin fecha"
-            "Tarea $id: $descripcion [REALIZADA el $fechaFormateada]"
+            "Tarea realizada con ID $id: $descripcion el $fechaFormateada]"
         }
     }
 }
