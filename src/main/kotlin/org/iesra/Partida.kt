@@ -17,6 +17,12 @@ class Partida() {
 
     }
 
+    fun mostrarTablero(){
+        for(linea in this.tablero){
+            print(linea)
+        }
+    }
+
     fun determinarGanador(): Pair<TipoFicha,Boolean> {
         // Líneas Horizontales
         for (i in 0 until tablero.size) {
@@ -30,8 +36,11 @@ class Partida() {
         // Líneas Verticales
         val lineaVertical : MutableList<TipoFicha> = mutableListOf()
         for (j in 0 until tablero.size) {
-            for (i in 0 until tablero.size) {
-                lineaVertical.add(tablero[i][j])
+            if ((0 until tablero.size).all {tablero[it][j] == TipoFicha.CRUZ }) {
+                return Pair(TipoFicha.CRUZ, true)
+            }
+            if ((0 until tablero.size).all {tablero[it][j] == TipoFicha.CIRCULO }) {
+                return Pair(TipoFicha.CIRCULO, true)
             }
         }
         if(lineaVertical.all{ it == TipoFicha.CRUZ }) {
